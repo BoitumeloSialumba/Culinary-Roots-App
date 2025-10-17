@@ -10,9 +10,11 @@ import SwiftUI
 struct SignIn: View {
     @State private var name : String = ""
     @State private var password : String = ""
+    
     var body: some View {
-        NavigationStack{
-            ZStack{
+        NavigationStack {
+            ZStack {
+                
                 LinearGradient(
                     colors: [
                         Color(red: 1.0, green: 0.97, blue: 0.91),
@@ -23,41 +25,46 @@ struct SignIn: View {
                 )
                 .ignoresSafeArea()
                 
-                
-                VStack{
+                VStack(spacing: 20) {
+                   
                     Text("Sign In")
                         .font(Font.system(size: 60, weight: .bold))
                         .foregroundColor(Color(red: 0.35, green: 0.18, blue: 0.05))
-                        .offset(y: -70)
+                        .padding(.top, 60)
+                    
+                    
                     Text("Savour the flavours, taste the tales every recipe is a trip back to your roots.")
                         .font(.title3)
                         .multilineTextAlignment(.center)
                         .foregroundColor(Color(red: 0.24, green: 0.12, blue: 0.04))
                         .padding(.horizontal, 30)
-                        .offset(y:-40)
+                        .padding(.bottom, 10)
                     
+                   
                     TextField("Name", text: $name)
                         .padding()
                         .background(Color.white.opacity(0.6))
                         .cornerRadius(8)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke((Color(red: 0.35, green: 0.18, blue: 0.05)), lineWidth: 1.5)
+                                .stroke(Color(red: 0.35, green: 0.18, blue: 0.05), lineWidth: 1.5)
                         )
-                        .padding(.horizontal, 10)
+                        .padding(.horizontal, 30)
                     
-                    TextField("Password", text: $password)
+                    
+                    SecureField("Password", text: $password)
                         .padding()
                         .background(Color.white.opacity(0.6))
                         .cornerRadius(8)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke((Color(red: 0.35, green: 0.18, blue: 0.05)), lineWidth: 1.5)
+                                .stroke(Color(red: 0.35, green: 0.18, blue: 0.05), lineWidth: 1.5)
                         )
-                        .padding(.horizontal, 10)
-                        .offset(y:40)
+                        .padding(.horizontal, 30)
+                        .padding(.bottom, 20)
                     
-                    NavigationLink(destination: SignIn()) {
+                   
+                    NavigationLink(destination: HomePage()) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(red: 0.35, green: 0.18, blue: 0.05))
@@ -67,27 +74,30 @@ struct SignIn: View {
                             Text("Next")
                                 .font(.headline)
                                 .foregroundColor(.white)
-                            
                         }
                     }
-                    .padding(.top, 80)
-                }
-                .offset(y: 30)
-                HStack {
-                    Text("You Dont Have an Account?")
-                        .offset(y: 300)
-                   NavigationLink(destination: SignUp()) {
-                           Text("Sign Up")
-                               .offset(y: 300)
+                    .padding(.top, 30)
+                    
+                    
+                    HStack(spacing: 4) {
+                        Text("You Dont Have an Account?")
+                            .foregroundColor(Color(red: 0.35, green: 0.18, blue: 0.05))
+                        
+                        NavigationLink(destination: SignUp()) {
+                            Text("Sign Up")
+                               
+                        }
                     }
-                    }
+                    .padding(.top, 20)
+                    
+                    Spacer()
                 }
-                
+                .padding(.bottom, 40)
+                .offset(y:100)
             }
         }
-       
-        }
-    
+    }
+}
 
 #Preview {
     SignIn()
