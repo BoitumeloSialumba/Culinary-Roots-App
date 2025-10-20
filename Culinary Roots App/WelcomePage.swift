@@ -48,7 +48,7 @@ struct WelcomePage: View {
                         .offset(y:60)
                     
                     
-                    NavigationLink(destination: Text("Next Page Coming Soon")) {
+                    NavigationLink(destination: SignIn()) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(red: 0.35, green: 0.18, blue: 0.05))
