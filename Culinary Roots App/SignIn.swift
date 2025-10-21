@@ -64,7 +64,7 @@ struct SignIn: View {
                         .padding(.bottom, 20)
                     
                    
-                    NavigationLink(destination: HomePage()) {
+                    NavigationLink(destination: ContentView()) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(red: 0.35, green: 0.18, blue: 0.05))
@@ -93,7 +93,7 @@ struct SignIn: View {
                     Spacer()
                 }
                 .padding(.bottom, 40)
-                .offset(y:100)
+                .offset(y:90)
             }
         }
     }
