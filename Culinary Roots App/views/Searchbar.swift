@@ -5,8 +5,6 @@
 //  Created by Boitumelo Sialumba on 20/10/2025.
 //
 
-
-
 import SwiftUI
 
 struct SearchBar: View {
@@ -17,6 +15,10 @@ struct SearchBar: View {
         HStack {
             TextField("Search foods...", text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(style: StrokeStyle(lineWidth: 1))
+                )
                 .onSubmit {
                     onSearchButtonClicked()
                 }

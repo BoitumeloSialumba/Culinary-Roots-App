@@ -5,18 +5,17 @@
 //  Created by Boitumelo Sialumba on 20/10/2025.
 //
 
-
 import Foundation
 import Combine
 
 class AfricanFoodService: ObservableObject {
     @Published var foods: [AfricanFood] = []
     @Published var isLoading: Bool = false
-
-  
+    
+    
     private let mockFoods: [AfricanFood] = [
         
-        // Southern Africa
+        
         AfricanFood(
             name: "Sadza",
             description: "Zimbabwe's staple food made from cornmeal, similar to polenta",
@@ -37,78 +36,78 @@ class AfricanFoodService: ObservableObject {
             defaultServings: 2
         ),
         AfricanFood(
-                    name: "Coconut Rice",
-                    description: "Fragrant West African rice cooked with coconut milk, spices, and seafood",
-                    ingredients: [
-                        Ingredient(name: "Long-grain rice", quantity: 2, unit: "cups"),
-                        Ingredient(name: "Coconut milk", quantity: 1, unit: "can"),
-                        Ingredient(name: "Bell pepper", quantity: 1, unit: "large"),
-                        Ingredient(name: "Curry powder", quantity: 1, unit: "tbsp"),
-                        Ingredient(name: "Salt", quantity: 1, unit: "tsp"),
-                        Ingredient(name: "Shrimp or chicken (optional)", quantity: 200, unit: "g")
-                    ],
-                    preparationTime: "1 hour",
-                    region: "West Africa",
-                    imageURL: "https://cheflolaskitchen.com/wp-content/uploads/2015/10/Coconut-Rice-6-1-scaled.jpg.webp",
-                    cookingInstructions: [
-                        "Sauté onions in coconut oil",
-                        "Add blended peppers and spices",
-                        "Pour in coconut milk and stock, then add rice",
-                        "Simmer until rice is tender and creamy"
-                    ],
-                    defaultServings: 2
-                ),
+            name: "Coconut Rice",
+            description: "Fragrant West African rice cooked with coconut milk, spices, and seafood",
+            ingredients: [
+                Ingredient(name: "Long-grain rice", quantity: 2, unit: "cups"),
+                Ingredient(name: "Coconut milk", quantity: 1, unit: "can"),
+                Ingredient(name: "Bell pepper", quantity: 1, unit: "large"),
+                Ingredient(name: "Curry powder", quantity: 1, unit: "tbsp"),
+                Ingredient(name: "Salt", quantity: 1, unit: "tsp"),
+                Ingredient(name: "Shrimp or chicken (optional)", quantity: 200, unit: "g")
+            ],
+            preparationTime: "1 hour",
+            region: "West Africa",
+            imageURL: "https://cheflolaskitchen.com/wp-content/uploads/2015/10/Coconut-Rice-6-1-scaled.jpg.webp",
+            cookingInstructions: [
+                "Sauté onions in coconut oil",
+                "Add blended peppers and spices",
+                "Pour in coconut milk and stock, then add rice",
+                "Simmer until rice is tender and creamy"
+            ],
+            defaultServings: 2
+        ),
         AfricanFood(
-                   name: "Mopani Worms (Madora)",
-                   description: "Traditional Zimbabwean delicacy stir-fried with spices and tomatoes",
-                   ingredients: [
-                       Ingredient(name: "Mopani worms", quantity: 400, unit: "g"),
-                       Ingredient(name: "Shallot (chopped)", quantity: 1, unit: "piece"),
-                       Ingredient(name: "Tomatoes", quantity: 1.5, unit: "pieces"),
-                       Ingredient(name: "Onion", quantity: 0.5, unit: "piece"),
-                       Ingredient(name: "Garlic", quantity: 2, unit: "cloves"),
-                       Ingredient(name: "Ginger", quantity: 0.5, unit: "tsp"),
-                       Ingredient(name: "Curry powder", quantity: 4, unit: "tsp"),
-                       Ingredient(name: "Salt", quantity: 1, unit: "tsp"),
-                       Ingredient(name: "Black pepper", quantity: 0.5, unit: "tsp"),
-                       Ingredient(name: "Oil for frying", quantity: 3, unit: "tbsp")
-                   ],
-                   preparationTime: "30 minutes",
-                   region: "Southern Africa",
-                   imageURL: "https://i.pinimg.com/1200x/15/3e/8b/153e8ba6273a2795fc54f3e718153685.jpg",
-                   cookingInstructions: [
-                       "Soak mopani worms in boiling water for 10 minutes, then rinse",
-                       "Fry garlic and ginger in oil, add mopani worms and fry 10 minutes",
-                       "Add curry powder, onions, and tomatoes, cook until done",
-                       "Garnish with shallots and serve with sadza"
-                   ],
-                   defaultServings: 2
-               ),
+            name: "Mopani Worms",
+            description: "Traditional Zimbabwean delicacy stir-fried with spices and tomatoes",
+            ingredients: [
+                Ingredient(name: "Mopani worms", quantity: 400, unit: "g"),
+                Ingredient(name: "Shallot (chopped)", quantity: 1, unit: "piece"),
+                Ingredient(name: "Tomatoes", quantity: 1.5, unit: "pieces"),
+                Ingredient(name: "Onion", quantity: 0.5, unit: "piece"),
+                Ingredient(name: "Garlic", quantity: 2, unit: "cloves"),
+                Ingredient(name: "Ginger", quantity: 0.5, unit: "tsp"),
+                Ingredient(name: "Curry powder", quantity: 4, unit: "tsp"),
+                Ingredient(name: "Salt", quantity: 1, unit: "tsp"),
+                Ingredient(name: "Black pepper", quantity: 0.5, unit: "tsp"),
+                Ingredient(name: "Oil for frying", quantity: 3, unit: "tbsp")
+            ],
+            preparationTime: "30 minutes",
+            region: "Southern Africa",
+            imageURL: "https://i.pinimg.com/1200x/15/3e/8b/153e8ba6273a2795fc54f3e718153685.jpg",
+            cookingInstructions: [
+                "Soak mopani worms in boiling water for 10 minutes, then rinse",
+                "Fry garlic and ginger in oil, add mopani worms and fry 10 minutes",
+                "Add curry powder, onions, and tomatoes, cook until done",
+                "Garnish with shallots and serve with sadza"
+            ],
+            defaultServings: 2
+        ),
         AfricanFood(
-                    name: "Road-Runner Chicken Stew",
-                    description: "Traditional free-range chicken stew, slow-cooked and richly seasoned",
-                    ingredients: [
-                        Ingredient(name: "Road-runner chicken", quantity: 2, unit: "kg"),
-                        Ingredient(name: "Water", quantity: 960, unit: "ml"),
-                        Ingredient(name: "Onion", quantity: 1, unit: "medium"),
-                        Ingredient(name: "Tomatoes", quantity: 3, unit: "medium"),
-                        Ingredient(name: "Garlic", quantity: 4, unit: "cloves"),
-                        Ingredient(name: "Tomato soup powder", quantity: 2, unit: "tbsp"),
-                        Ingredient(name: "Salt", quantity: 1, unit: "tsp"),
-                        Ingredient(name: "Tomato sauce", quantity: 2, unit: "tbsp"),
-                        Ingredient(name: "Paprika", quantity: 1, unit: "tsp")
-                    ],
-                    preparationTime: "1 hr 45 min",
-                    region: "Southern Africa",
-                    imageURL: "https://www.zimbokitchen.com/wp-content/uploads/2013/11/Zimbabwe-food-recipes-road-runner-chicken.png",
-                    cookingInstructions: [
-                        "Boil chicken in 400 ml water with salt for 50 minutes",
-                        "Add garlic and paprika, fry until browned",
-                        "Add water and simmer until tender",
-                        "Add onions, tomatoes, and soup powder. Simmer until thickened"
-                    ],
-                    defaultServings: 2
-                ),
+            name: "Road-Runner Chicken Stew",
+            description: "Traditional free-range chicken stew, slow-cooked and richly seasoned",
+            ingredients: [
+                Ingredient(name: "Road-runner chicken", quantity: 2, unit: "kg"),
+                Ingredient(name: "Water", quantity: 960, unit: "ml"),
+                Ingredient(name: "Onion", quantity: 1, unit: "medium"),
+                Ingredient(name: "Tomatoes", quantity: 3, unit: "medium"),
+                Ingredient(name: "Garlic", quantity: 4, unit: "cloves"),
+                Ingredient(name: "Tomato soup powder", quantity: 2, unit: "tbsp"),
+                Ingredient(name: "Salt", quantity: 1, unit: "tsp"),
+                Ingredient(name: "Tomato sauce", quantity: 2, unit: "tbsp"),
+                Ingredient(name: "Paprika", quantity: 1, unit: "tsp")
+            ],
+            preparationTime: "1 hr 45 min",
+            region: "Southern Africa",
+            imageURL: "https://www.zimbokitchen.com/wp-content/uploads/2013/11/Zimbabwe-food-recipes-road-runner-chicken.png",
+            cookingInstructions: [
+                "Boil chicken in 400 ml water with salt for 50 minutes",
+                "Add garlic and paprika, fry until browned",
+                "Add water and simmer until tender",
+                "Add onions, tomatoes, and soup powder. Simmer until thickened"
+            ],
+            defaultServings: 2
+        ),
         
         AfricanFood(
             name: "Bobotie",
@@ -160,9 +159,9 @@ class AfricanFoodService: ObservableObject {
             ],
             defaultServings: 2
         ),
-
+        
         AfricanFood(
-            name: "Mazondo (Cow Heels)",
+            name: "Cow Heels",
             description: "Slow-cooked cow heels in a rich tomato-onion sauce — a Zimbabwean favorite.",
             ingredients: [
                 Ingredient(name: "Cow heels", quantity: 1.2, unit: "kg"),
@@ -185,7 +184,7 @@ class AfricanFoodService: ObservableObject {
             ],
             defaultServings: 4
         ),
-
+        
         AfricanFood(
             name: "Dried Kapenta Stew",
             description: "A quick and flavorful dried fish stew served with sadza.",
@@ -213,7 +212,7 @@ class AfricanFoodService: ObservableObject {
             ],
             defaultServings: 2
         ),
-
+        
         AfricanFood(
             name: "Mealie-Meal Porridge",
             description: "Classic Zimbabwean breakfast porridge made from finely ground maize meal.",
@@ -234,7 +233,7 @@ class AfricanFoodService: ObservableObject {
             ],
             defaultServings: 2
         ),
-
+        
         AfricanFood(
             name: "Okra Stew",
             description: "Quick-cooked okra with tomato and onion in a light, peppery sauce.",
@@ -258,7 +257,7 @@ class AfricanFoodService: ObservableObject {
             ],
             defaultServings: 2
         ),
-
+        
         
         AfricanFood(
             name: "Goat Meat Stew",
@@ -338,35 +337,32 @@ class AfricanFoodService: ObservableObject {
         )
     ]
     
-  
+    
     init() {
         loadFoods()
     }
     
-  
+    
     func loadFoods() {
-        isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.foods = self.mockFoods
-            self.isLoading = false
-        }
+    
+        self.foods = self.mockFoods
+        self.isLoading = false
     }
-
     
     func searchFoods(query: String) {
-        isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
-            if trimmed.isEmpty {
-                self.foods = self.mockFoods
-            } else {
-                self.foods = self.mockFoods.filter { food in
-                    food.name.localizedCaseInsensitiveContains(trimmed) ||
-                    food.description.localizedCaseInsensitiveContains(trimmed) ||
-                    food.region.localizedCaseInsensitiveContains(trimmed)
-                }
+        let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if trimmed.isEmpty {
+            self.foods = self.mockFoods
+        } else {
+            self.foods = self.mockFoods.filter { food in
+                food.name.localizedCaseInsensitiveContains(trimmed) ||
+                food.description.localizedCaseInsensitiveContains(trimmed) ||
+                food.region.localizedCaseInsensitiveContains(trimmed)
             }
-            self.isLoading = false
         }
+        
+        self.isLoading = false
     }
+    
 }

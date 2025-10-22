@@ -14,7 +14,6 @@ struct SignIn: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                
                 LinearGradient(
                     colors: [
                         Color(red: 1.0, green: 0.97, blue: 0.91),

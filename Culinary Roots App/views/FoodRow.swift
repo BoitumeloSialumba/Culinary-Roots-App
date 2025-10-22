@@ -3,42 +3,42 @@
 //  Culinary Roots App
 //
 //  Created by Boitumelo Sialumba on 20/10/2025.
+
 import SwiftUI
 
 struct FoodRowView: View {
     let food: AfricanFood
     
     var body: some View {
-        HStack {
-            AsyncImage(url: URL(string: food.imageURL)) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-            } placeholder: {
-                Color.gray.opacity(0.3)
-            }
-            .frame(width: 80, height: 80)
-            .clipped()
-            .cornerRadius(8)
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(food.name)
-                    .font(.title2)
-                    .foregroundColor(.primary)
+            HStack {
+                AsyncImage(url: URL(string: food.imageURL)) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    Color.gray.opacity(0.3)
+                }
+                .frame(width: 80, height: 80)
+                .clipped()
+                .cornerRadius(8)
                 
-                Text(food.description)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .lineLimit(2)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(food.name)
+                        .font(.title2)
+                        .foregroundColor(.primary)
+                    
+                    Text(food.description)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
+                }
+                Spacer()
             }
-            
-            Spacer()
+            .padding(.vertical, 8)
+            .cornerRadius(8)
         }
-        .padding(.vertical, 8)
-        
-        .cornerRadius(8)
     }
-}
+
 #Preview {
     FoodRowView(food:AfricanFood(
         name: "Sadza",
@@ -57,6 +57,6 @@ struct FoodRowView: View {
             "Cook for 20–25 minutes, stirring constantly",
             "Serve hot with vegetables or meat"
         ],
-        defaultServings: 4
+        defaultServings: 2
         ))
 }

@@ -9,13 +9,7 @@ import SwiftUI
 
 struct FoodDetailView: View {
     let food: AfricanFood
-    @State private var servings: Int
-
-    init(food: AfricanFood) {
-        self.food = food
-        _servings = State(initialValue: food.defaultServings)
-    }
-
+    @State private var servings: Int = 0
 
     var scaledIngredients: [Ingredient] {
         food.ingredients.map { ingredient in
@@ -96,7 +90,7 @@ struct FoodDetailView: View {
                         }
                     }
 
-                    // Cooking Instructions
+              
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Cooking Instructions")
                             .font(.headline)
@@ -121,6 +115,9 @@ struct FoodDetailView: View {
             }
             .navigationTitle(food.name)
         }
+        .onAppear {
+            servings = food.defaultServings
+        }
     }
 }
 #Preview {
@@ -141,6 +138,6 @@ struct FoodDetailView: View {
             "Cook for 20–25 minutes until thick",
             "Serve hot with vegetables or meat"
         ],
-        defaultServings: 4
+        defaultServings: 2
     ))
 }

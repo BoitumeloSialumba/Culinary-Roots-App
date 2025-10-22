@@ -12,8 +12,7 @@ struct AddingANewRecipe: View {
     @State private var Description: String = ""
     @State private var Ingredients: String = ""
     @State private var Preparation: String = ""
-    //@State private var NavigateToRecipe = fals
-    
+  
     @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack{

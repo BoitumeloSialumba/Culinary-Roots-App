@@ -23,5 +23,5 @@ struct AfricanFood: Identifiable {
     let region: String
     let imageURL: String
     let cookingInstructions: [String]
-   let defaultServings: Int
+    let defaultServings: Int
 }

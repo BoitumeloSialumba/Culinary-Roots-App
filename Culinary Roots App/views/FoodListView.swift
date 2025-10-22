@@ -10,19 +10,16 @@ struct FoodListView: View {
     let foods: [AfricanFood]
 
     var body: some View {
-
+        
             List(foods) { food in
                 NavigationLink(destination: FoodDetailView(food: food)) {
                     FoodRowView(food: food)
                 }
             }
-            .scrollContentBackground(.hidden) 
+            .scrollContentBackground(.hidden)
             .listStyle(PlainListStyle())
-       
-        
+        }
     }
-    }
-
 
 #Preview {
     FoodListView(foods: [
@@ -43,7 +40,7 @@ struct FoodListView: View {
                 "Cook for 20–25 minutes, stirring constantly",
                 "Serve hot with vegetables or meat"
             ],
-            defaultServings: 4
+            defaultServings: 2
             ),
         
         AfricanFood(
@@ -67,7 +64,7 @@ struct FoodListView: View {
                 "Mix meat with soaked bread, spices, and raisins",
                 "Bake with egg topping for 30 minutes"
             ],
-            defaultServings: 4
+            defaultServings: 2
         )
     ])
 }
