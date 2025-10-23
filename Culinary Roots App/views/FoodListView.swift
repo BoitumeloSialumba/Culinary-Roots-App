@@ -10,7 +10,6 @@ struct FoodListView: View {
     let foods: [AfricanFood]
 
     var body: some View {
-        
             List(foods) { food in
                 NavigationLink(destination: FoodDetailView(food: food)) {
                     FoodRowView(food: food)
