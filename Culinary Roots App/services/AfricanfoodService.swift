@@ -132,6 +132,227 @@ class AfricanFoodService: ObservableObject {
             ],
             defaultServings: 2
         ),
+      
+
+        AfricanFood(
+            name: "Creamed Spinach",
+            description: "Rich and creamy spinach dish made with butter, garlic, cream, and cheese  a favorite side across Southern Africa.",
+            ingredients: [
+                Ingredient(name: "Fresh spinach", quantity: 30, unit: "oz"),
+                Ingredient(name: "Butter", quantity: 2, unit: "tbsp"),
+                Ingredient(name: "White onion (minced)", quantity: 1, unit: "medium"),
+                Ingredient(name: "Garlic (minced)", quantity: 2, unit: "cloves"),
+                Ingredient(name: "Heavy cream", quantity: 1.25, unit: "cups"),
+                Ingredient(name: "Provolone cheese (sliced)", quantity: 4, unit: "slices"),
+                Ingredient(name: "Parmesan cheese (grated)", quantity: 0.25, unit: "cup"),
+                Ingredient(name: "Salt", quantity: 1, unit: "tsp"),
+                Ingredient(name: "Black pepper", quantity: 0.5, unit: "tsp")
+            ],
+            preparationTime: "30 minutes",
+            region: "Southern Africa",
+            imageURL: "https://i.pinimg.com/736x/b8/22/7b/b8227beb92facd0a23d784e469b9bd3a.jpg",
+            cookingInstructions: [
+                "Wilt and drain the spinach.",
+                "Cook the onion and garlic in butter until tender.",
+                "Add the spinach and cream, stirring gently.",
+                "Stir in the cheeses until melted.",
+                "Season with salt and pepper before serving."
+            ],
+            defaultServings: 4
+        ),
+        
+
+        AfricanFood(
+            name: "Chakalaka",
+            description: "A spicy South African vegetable relish made with onions, tomatoes, carrots, and baked beans.",
+            ingredients: [
+                Ingredient(name: "Onion (diced)", quantity: 1, unit: "large"),
+                Ingredient(name: "Green pepper (diced)", quantity: 0.5, unit: "piece"),
+                Ingredient(name: "Curry powder", quantity: 2, unit: "tbsp"),
+                Ingredient(name: "Carrots (grated)", quantity: 3, unit: "pieces"),
+                Ingredient(name: "Tomatoes (chopped)", quantity: 2, unit: "large"),
+                Ingredient(name: "Baked beans (tinned)", quantity: 1, unit: "tin"),
+                Ingredient(name: "Salt and pepper", quantity: 1, unit: "to taste"),
+                Ingredient(name: "Seasoning (garlic, BBQ spice, herbs)", quantity: 1, unit: "tsp")
+            ],
+            preparationTime: "25 minutes",
+            region: "Southern Africa",
+            imageURL: "https://i.pinimg.com/1200x/2d/26/3f/2d263f3b2e8844ba2f02f4786d751c90.jpg",
+            cookingInstructions: [
+                "Heat oil in a large pan.",
+                "Fry onion and green pepper until translucent.",
+                "Add curry powder and fry for a minute.",
+                "Add carrots and fry briefly.",
+                "Stir in tomatoes, salt, and pepper. Cover and simmer for 5 minutes.",
+                "Add baked beans and seasonings, then simmer for 10 minutes."
+            ],
+            defaultServings: 4
+        ),
+
+        AfricanFood(
+            name: "Kota (Bunny Chow)",
+            description: "A South African street food favorite made by filling a hollowed loaf of bread with savory fillings like chips, sausage, and atchar.",
+            ingredients: [
+                Ingredient(name: "White onion (sliced)", quantity: 0.5, unit: "piece"),
+                Ingredient(name: "Sunflower oil", quantity: 15, unit: "ml"),
+                Ingredient(name: "White sugar", quantity: 30, unit: "ml"),
+                Ingredient(name: "White bread loaf", quantity: 0.5, unit: "loaf"),
+                Ingredient(name: "Fried chips", quantity: 100, unit: "g"),
+                Ingredient(name: "Russian sausage (fried)", quantity: 1, unit: "piece"),
+                Ingredient(name: "Cheese slices", quantity: 2, unit: "pieces"),
+                Ingredient(name: "Atchar", quantity: 60, unit: "ml"),
+                Ingredient(name: "Egg (fried)", quantity: 1, unit: "piece")
+            ],
+            preparationTime: "35 minutes",
+            region: "Southern Africa",
+            imageURL: "https://sapork.co.za/wp-content/uploads/2024/11/Pork-Rib-Kota-7.jpeg",
+            cookingInstructions: [
+                "Fry onion in oil until translucent, then add sugar and simmer until caramelized.",
+                "Remove crust from one side of the loaf and hollow it out.",
+                "Toast the removed bread in a hot pan.",
+                "Fill loaf with chips, sausage, onions, cheese, and atchar.",
+                "Top with fried egg and toasted bread slice."
+            ],
+            defaultServings: 2
+        ),
+
+        AfricanFood(
+            name: "Offals Stew",
+            description: "A hearty and flavorful stew made from assorted offals, simmered with tomatoes, spices, and vegetables.",
+            ingredients: [
+                Ingredient(name: "Assorted offals", quantity: 1, unit: "kg"),
+                Ingredient(name: "Tomatoes (diced)", quantity: 3, unit: "large"),
+                Ingredient(name: "Green pepper (diced)", quantity: 1, unit: "large"),
+                Ingredient(name: "Carrot (diced)", quantity: 1, unit: "large"),
+                Ingredient(name: "Onion (diced)", quantity: 1, unit: "large"),
+                Ingredient(name: "Garlic (crushed)", quantity: 1, unit: "clove"),
+                Ingredient(name: "Lemon juice or vinegar", quantity: 1, unit: "tbsp"),
+                Ingredient(name: "Black pepper", quantity: 1, unit: "tsp"),
+                Ingredient(name: "Ground coriander", quantity: 1, unit: "tsp"),
+                Ingredient(name: "Turmeric powder", quantity: 1, unit: "tsp"),
+                Ingredient(name: "Salt", quantity: 1, unit: "tsp")
+            ],
+            preparationTime: "2 hours",
+            region: "Southern Africa",
+            imageURL: "https://i.pinimg.com/1200x/44/8b/19/448b196d8bfe14ca3a32bb1a1d66b33f.jpg",
+            cookingInstructions: [
+                "Wash offals thoroughly to remove sand and dirt.",
+                "Place in a pot with salt, vinegar, and water; boil until tender (1–2 hours).",
+                "Let water reduce and allow offals to fry in their own fat.",
+                "Add garlic and onions, stir well.",
+                "Add remaining vegetables and spices, then simmer for 30–45 minutes.",
+                "Serve hot with sadza, matooke, or chapati."
+            ],
+            defaultServings: 4
+        ),
+
+        AfricanFood(
+            name: "Grilled Fish",
+            description: "Perfectly grilled whole fish stuffed with herbs and seasoned with paprika, garlic, and lemon.",
+            ingredients: [
+                Ingredient(name: "Kosher salt", quantity: 1, unit: "tsp"),
+                Ingredient(name: "Black pepper", quantity: 0.5, unit: "tsp"),
+                Ingredient(name: "Paprika", quantity: 0.5, unit: "tsp"),
+                Ingredient(name: "Garlic powder", quantity: 0.5, unit: "tsp"),
+                Ingredient(name: "Cayenne pepper", quantity: 1, unit: "pinch"),
+                Ingredient(name: "Whole fish (branzino or similar)", quantity: 1.25, unit: "lb"),
+                Ingredient(name: "Chives", quantity: 3, unit: "sprigs"),
+                Ingredient(name: "Tarragon", quantity: 2, unit: "sprigs"),
+                Ingredient(name: "Italian parsley", quantity: 2, unit: "sprigs"),
+                Ingredient(name: "Olive oil", quantity: 1, unit: "tbsp"),
+                Ingredient(name: "Lemon (quartered)", quantity: 1, unit: "large")
+            ],
+            preparationTime: "45 minutes",
+            region: "Southern Africa",
+            imageURL: "https://i.pinimg.com/736x/f5/f3/cd/f5f3cddea7473e909e683d06893cb261.jpg",
+            cookingInstructions: [
+                "Mix spices together to make seasoning salt.",
+                "Stuff fish cavity with herbs and season inside and out.",
+                "Brush with olive oil and chill for 30 minutes.",
+                "Grill over medium heat for 4 minutes per side until browned.",
+                "Cook until internal temperature reaches 135°F, then serve with lemon wedges."
+            ],
+            defaultServings: 2
+        ),
+        AfricanFood(
+            name: "Umxhanxha (Pumpkin Porridge)",
+            description: "A traditional South African and Zimbabwean porridge made from pumpkin and white mielies, offering a sweet and savory flavor.",
+            ingredients: [
+                Ingredient(name: "Pumpkin (peeled and diced)", quantity: 400, unit: "g"),
+                Ingredient(name: "White mielies (cut off the cob)", quantity: 200, unit: "g"),
+                Ingredient(name: "Salt", quantity: 1, unit: "to taste"),
+                Ingredient(name: "Brown sugar", quantity: 1, unit: "tbsp"),
+                Ingredient(name: "Water", quantity: 1, unit: "as needed")
+            ],
+            preparationTime: "15 minutes",
+            region: "Southern Africa",
+            imageURL: "https://img-global.cpcdn.com/recipes/25149cb7da141e55/680x781cq80/umxhaxha-recipe-main-photo.jpg",
+            cookingInstructions: [
+                "Place pumpkin, mielies, salt, and sugar in a saucepan.",
+                "Add enough water to cover the ingredients.",
+                "Cook over medium heat for 10–15 minutes until pumpkin is soft and mielies are tender.",
+                "Drain excess water and mash the pumpkin to form a rough purée.",
+                "Serve warm or cold."
+            ],
+            defaultServings: 2
+        ),
+
+        AfricanFood(
+            name: "Chomolia",
+            description: "A traditional leafy green dish, popular in Zimbabwe and Southern Africa, made with chomolia (collard greens), onions, and spices.",
+            ingredients: [
+                Ingredient(name: "Chomolia (collard greens), finely chopped", quantity: 1, unit: "bunch"),
+                Ingredient(name: "Onion (finely chopped)", quantity: 1, unit: "medium"),
+                Ingredient(name: "Yellow pepper (finely chopped)", quantity: 1, unit: "piece"),
+                Ingredient(name: "Olive oil", quantity: 2, unit: "tbsp"),
+                Ingredient(name: "Benny spice", quantity: 1, unit: "to taste")
+            ],
+            preparationTime: "25 minutes",
+            region: "Southern Africa",
+            imageURL: "https://www.zimbokitchen.com/wp-content/uploads/2021/08/MURIWO-GREEN-WEB.jpg",
+            cookingInstructions: [
+                "Boil the chomolia for 10 minutes, then set aside.",
+                "In a clean pot, heat olive oil over medium heat.",
+                "Add chopped onion and yellow pepper, and fry until soft.",
+                "Add Benny spice and stir.",
+                "Add the boiled chomolia and cook for a few more minutes until tender and flavorful."
+            ],
+            defaultServings: 2
+        ),
+
+
+        AfricanFood(
+            name: "Seafood Mix",
+            description: "A rich oven-roasted seafood medley with potatoes, prawns, mussels, squid, corn, chorizo, and lemon butter.",
+            ingredients: [
+                Ingredient(name: "Baby potatoes", quantity: 400, unit: "g"),
+                Ingredient(name: "Olive oil", quantity: 1, unit: "tbsp"),
+                Ingredient(name: "Corn cobs", quantity: 2, unit: "pieces"),
+                Ingredient(name: "Prawns (with shells)", quantity: 12, unit: "pieces"),
+                Ingredient(name: "Mussels or clams", quantity: 12, unit: "pieces"),
+                Ingredient(name: "Squid (cleaned)", quantity: 2, unit: "medium"),
+                Ingredient(name: "Butter", quantity: 150, unit: "g"),
+                Ingredient(name: "Parsley (chopped)", quantity: 1, unit: "small bunch"),
+                Ingredient(name: "Smoked paprika", quantity: 1, unit: "tsp"),
+                Ingredient(name: "Garlic (crushed)", quantity: 3, unit: "cloves"),
+                Ingredient(name: "Lemon (zested and cut into wedges)", quantity: 1, unit: "large"),
+                Ingredient(name: "Chorizo (sliced)", quantity: 200, unit: "g")
+            ],
+            preparationTime: "1 hour",
+            region: "Southern Africa",
+            imageURL: "https://images.immediate.co.uk/production/volatile/sites/30/2021/07/Roast-seafood-dish-b585388.jpg?quality=90&webp=true&resize=800,726",
+            cookingInstructions: [
+                "Preheat oven to 200°C.",
+                "Hasselback the potatoes, toss in oil, and roast for 20 minutes.",
+                "Prepare prawns, mussels, and squid.",
+                "Add corn to tray and roast for 5 minutes.",
+                "Mix butter with parsley, paprika, garlic, and lemon zest.",
+                "Add seafood, chorizo, and butter to tray, toss, and roast for 10 minutes.",
+                "Ensure prawns turn pink and mussels open. Garnish with parsley and serve."
+            ],
+            defaultServings: 4
+        ),
+
         AfricanFood(
             name: "Chicken Gizzards Stew",
             description: "Tender chicken gizzards simmered with Worcester sauce and vegetables.",

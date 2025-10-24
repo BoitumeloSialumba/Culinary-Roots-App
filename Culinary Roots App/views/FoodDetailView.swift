@@ -10,6 +10,7 @@ import SwiftUI
 struct FoodDetailView: View {
     let food: AfricanFood
     @State private var servings: Int = 0
+    
 
     var scaledIngredients: [Ingredient] {
         food.ingredients.map { ingredient in
@@ -70,6 +71,7 @@ struct FoodDetailView: View {
                     HStack {
                         Text("Servings: \(servings)")
                             .font(.headline)
+                            
                         Spacer()
                         Stepper("", value: $servings, in: 1...20)
                     }
@@ -78,8 +80,9 @@ struct FoodDetailView: View {
                  
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Ingredients")
-                            .font(.headline)
-
+                            .font(.title3)
+                            .bold()
+                        
                         ForEach(scaledIngredients, id: \.name) { ingredient in
                             HStack {
                                 Image(systemName: "circle.fill")
@@ -93,7 +96,8 @@ struct FoodDetailView: View {
               
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Cooking Instructions")
-                            .font(.headline)
+                            .font(.title3)
+                            .bold()
 
                         ForEach(Array(food.cookingInstructions.enumerated()), id: \.offset) { index, instruction in
                             HStack(alignment: .top) {
@@ -117,6 +121,8 @@ struct FoodDetailView: View {
         }
         .onAppear {
             servings = food.defaultServings
+           
+            
         }
     }
 }
@@ -140,4 +146,5 @@ struct FoodDetailView: View {
         ],
         defaultServings: 2
     ))
+    
 }
