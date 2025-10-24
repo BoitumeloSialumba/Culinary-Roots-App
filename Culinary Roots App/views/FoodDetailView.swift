@@ -10,6 +10,7 @@ import SwiftUI
 struct FoodDetailView: View {
     let food: AfricanFood
     @State private var servings: Int = 0
+    
 
     var scaledIngredients: [Ingredient] {
         food.ingredients.map { ingredient in
@@ -81,7 +82,7 @@ struct FoodDetailView: View {
                         Text("Ingredients")
                             .font(.title3)
                             .bold()
-
+                        
                         ForEach(scaledIngredients, id: \.name) { ingredient in
                             HStack {
                                 Image(systemName: "circle.fill")
@@ -120,6 +121,8 @@ struct FoodDetailView: View {
         }
         .onAppear {
             servings = food.defaultServings
+           
+            
         }
     }
 }
@@ -143,4 +146,5 @@ struct FoodDetailView: View {
         ],
         defaultServings: 2
     ))
+    
 }
