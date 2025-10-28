@@ -10,11 +10,13 @@ import SwiftUI
 struct SignIn: View {
     @State private var name : String = ""
     @State private var password : String = ""
+    @State private var showAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationStack {
             ZStack {
-                
                 LinearGradient(
                     colors: [
                         Color(red: 1.0, green: 0.97, blue: 0.91),
@@ -26,12 +28,10 @@ struct SignIn: View {
                 .ignoresSafeArea()
                 
                 VStack(spacing: 20) {
-                   
                     Text("Sign In")
-                        .font(Font.system(size: 60, weight: .bold))
+                        .font(.system(size: 60, weight: .bold))
                         .foregroundColor(Color(red: 0.35, green: 0.18, blue: 0.05))
                         .padding(.top, 60)
-                    
                     
                     Text("Savour the flavours, taste the tales every recipe is a trip back to your roots.")
                         .font(.title3)
@@ -40,7 +40,6 @@ struct SignIn: View {
                         .padding(.horizontal, 30)
                         .padding(.bottom, 10)
                     
-                   
                     TextField("Name", text: $name)
                         .padding()
                         .background(Color.white.opacity(0.6))
@@ -50,7 +49,6 @@ struct SignIn: View {
                                 .stroke(Color(red: 0.35, green: 0.18, blue: 0.05), lineWidth: 1.5)
                         )
                         .padding(.horizontal, 30)
-                    
                     
                     SecureField("Password", text: $password)
                         .padding()
@@ -63,8 +61,9 @@ struct SignIn: View {
                         .padding(.horizontal, 30)
                         .padding(.bottom, 20)
                     
-                   
-                    NavigationLink(destination: HomePage()) {
+                    Button(action: {
+                        attemptLogin()
+                    }) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(red: 0.35, green: 0.18, blue: 0.05))
@@ -75,17 +74,15 @@ struct SignIn: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                         }
+                        .disabled(password.isEmpty)
                     }
-                    .padding(.top, 30)
-                    
                     
                     HStack(spacing: 4) {
-                        Text("You Dont Have an Account?")
+                        Text("You Don't Have an Account?")
                             .foregroundColor(Color(red: 0.35, green: 0.18, blue: 0.05))
                         
                         NavigationLink(destination: SignUp()) {
                             Text("Sign Up")
-                               
                         }
                     }
                     .padding(.top, 20)
@@ -93,9 +90,31 @@ struct SignIn: View {
                     Spacer()
                 }
                 .padding(.bottom, 40)
-                .offset(y:100)
+                .offset(y: 100)
+            }
+            .alert(alertTitle, isPresented: $showAlert) {
+                NavigationLink("OK") { }
+            } message: {
+                Text(alertMessage)
+                HomePage()
             }
         }
+    }
+    
+    
+    private func attemptLogin() {
+        if password.count < 8 {
+            alertTitle = "That password’s undercooked "
+            alertMessage = "👩🏾‍🍳 Try at least 8 characters for the perfect recipe!"
+            showAlert = true
+            return
+        }
+        
+        let formattedName = name.trimmingCharacters(in: .whitespacesAndNewlines).capitalized
+        alertTitle = "Welcome back \(formattedName)!"
+        alertMessage = "Yum! Your password’s cooked to perfection 😋"
+        
+        showAlert = true
     }
 }
 
