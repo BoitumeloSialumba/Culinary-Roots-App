@@ -27,7 +27,7 @@ struct FoodRowView: View {
                         .font(.title2)
                         .foregroundColor(.primary)
                     
-                    Text(food.description)
+                    Text(food.descriptionFood)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .lineLimit(2)

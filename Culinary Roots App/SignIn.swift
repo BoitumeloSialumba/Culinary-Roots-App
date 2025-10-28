@@ -10,6 +10,8 @@ import SwiftUI
 struct SignIn: View {
     @State private var name : String = ""
     @State private var password : String = ""
+    @State private var showAlert = false
+    @State private var alertMessage : String = ""
     
     var body: some View {
         NavigationStack {
@@ -25,7 +27,7 @@ struct SignIn: View {
                 .ignoresSafeArea()
                 
                 VStack(spacing: 20) {
-                   
+                    
                     Text("Sign In")
                         .font(Font.system(size: 60, weight: .bold))
                         .foregroundColor(Color(red: 0.35, green: 0.18, blue: 0.05))
@@ -39,7 +41,7 @@ struct SignIn: View {
                         .padding(.horizontal, 30)
                         .padding(.bottom, 10)
                     
-                   
+                    
                     TextField("Name", text: $name)
                         .padding()
                         .background(Color.white.opacity(0.6))
@@ -63,19 +65,22 @@ struct SignIn: View {
                         .padding(.bottom, 20)
                     
                    
-                    NavigationLink(destination: ContentView()) {
+                    Button(action: {
+                        //attemptLogin()
+                    }) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(red: 0.35, green: 0.18, blue: 0.05))
                                 .frame(width: 180, height: 50)
                                 .shadow(radius: 5)
-                                
+                            
                             Text("Next")
                                 .font(.headline)
                                 .foregroundColor(.white)
                         }
-                        
                     }
+                    .padding()
+                    .disabled(name.isEmpty || password.isEmpty)
                     .padding(.top, 30)
                     
                     
@@ -85,7 +90,7 @@ struct SignIn: View {
                         
                         NavigationLink(destination: SignUp()) {
                             Text("Sign Up")
-                               
+                            
                         }
                     }
                     .padding(.top, 20)
@@ -95,9 +100,12 @@ struct SignIn: View {
                 .padding(.bottom, 40)
                 .offset(y:90)
             }
+            
         }
     }
 }
+//}
+
 
 #Preview {
     SignIn()

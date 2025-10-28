@@ -56,7 +56,7 @@ struct FoodDetailView: View {
                             .font(.largeTitle)
                             .bold()
 
-                        Text(food.description)
+                        Text(food.descriptionFood)
                             .font(.body)
                             .foregroundColor(.secondary)
                     }
