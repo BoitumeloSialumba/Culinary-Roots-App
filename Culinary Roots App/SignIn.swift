@@ -69,7 +69,7 @@ struct SignIn: View {
                                 .fill(Color(red: 0.35, green: 0.18, blue: 0.05))
                                 .frame(width: 180, height: 50)
                                 .shadow(radius: 5)
-                                
+                            
                             Text("Next")
                                 .font(.headline)
                                 .foregroundColor(.white)
@@ -98,6 +98,7 @@ struct SignIn: View {
                 Text(alertMessage)
                 HomePage()
             }
+            
         }
     }
     
@@ -117,6 +118,8 @@ struct SignIn: View {
         showAlert = true
     }
 }
+//}
+
 
 #Preview {
     SignIn()
