@@ -11,7 +11,8 @@ struct SignIn: View {
     @State private var name : String = ""
     @State private var password : String = ""
     @State private var showAlert = false
-    @State private var alertMessage : String = ""
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationStack {
@@ -27,12 +28,10 @@ struct SignIn: View {
                 .ignoresSafeArea()
                 
                 VStack(spacing: 20) {
-                    
                     Text("Sign In")
-                        .font(Font.system(size: 60, weight: .bold))
+                        .font(.system(size: 60, weight: .bold))
                         .foregroundColor(Color(red: 0.35, green: 0.18, blue: 0.05))
                         .padding(.top, 60)
-                    
                     
                     Text("Savour the flavours, taste the tales every recipe is a trip back to your roots.")
                         .font(.title3)
@@ -40,7 +39,6 @@ struct SignIn: View {
                         .foregroundColor(Color(red: 0.24, green: 0.12, blue: 0.04))
                         .padding(.horizontal, 30)
                         .padding(.bottom, 10)
-                    
                     
                     TextField("Name", text: $name)
                         .padding()
@@ -51,7 +49,6 @@ struct SignIn: View {
                                 .stroke(Color(red: 0.35, green: 0.18, blue: 0.05), lineWidth: 1.5)
                         )
                         .padding(.horizontal, 30)
-                    
                     
                     SecureField("Password", text: $password)
                         .padding()
@@ -64,9 +61,8 @@ struct SignIn: View {
                         .padding(.horizontal, 30)
                         .padding(.bottom, 20)
                     
-                   
                     Button(action: {
-                        //attemptLogin()
+                        attemptLogin()
                     }) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 16)
@@ -78,19 +74,15 @@ struct SignIn: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                         }
+                        .disabled(password.isEmpty)
                     }
-                    .padding()
-                    .disabled(name.isEmpty || password.isEmpty)
-                    .padding(.top, 30)
-                    
                     
                     HStack(spacing: 4) {
-                        Text("You Dont Have an Account?")
+                        Text("You Don't Have an Account?")
                             .foregroundColor(Color(red: 0.35, green: 0.18, blue: 0.05))
                         
                         NavigationLink(destination: SignUp()) {
                             Text("Sign Up")
-                            
                         }
                     }
                     .padding(.top, 20)
@@ -98,10 +90,32 @@ struct SignIn: View {
                     Spacer()
                 }
                 .padding(.bottom, 40)
-                .offset(y:90)
+                .offset(y: 100)
+            }
+            .alert(alertTitle, isPresented: $showAlert) {
+                NavigationLink("OK") { }
+            } message: {
+                Text(alertMessage)
+                HomePage()
             }
             
         }
+    }
+    
+    
+    private func attemptLogin() {
+        if password.count < 8 {
+            alertTitle = "That password’s undercooked "
+            alertMessage = "👩🏾‍🍳 Try at least 8 characters for the perfect recipe!"
+            showAlert = true
+            return
+        }
+        
+        let formattedName = name.trimmingCharacters(in: .whitespacesAndNewlines).capitalized
+        alertTitle = "Welcome back \(formattedName)!"
+        alertMessage = "Yum! Your password’s cooked to perfection 😋"
+        
+        showAlert = true
     }
 }
 //}
