@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct SignIn: View {
-    @State private var name : String = ""
-    @State private var password : String = ""
+    @State private var name: String = ""
+    @State private var password: String = ""
     @State private var showAlert = false
     @State private var alertTitle = ""
     @State private var alertMessage = ""
+    @State private var navigateToContentView = false
     
     var body: some View {
         NavigationStack {
             ZStack {
+              
                 LinearGradient(
                     colors: [
                         Color(red: 1.0, green: 0.97, blue: 0.91),
@@ -61,20 +63,24 @@ struct SignIn: View {
                         .padding(.horizontal, 30)
                         .padding(.bottom, 20)
                     
-                    Button(action: {
-                        attemptLogin()
-                    }) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 16)
-                                .fill(Color(red: 0.35, green: 0.18, blue: 0.05))
-                                .frame(width: 180, height: 50)
-                                .shadow(radius: 5)
-                            
-                            Text("Next")
-                                .font(.headline)
-                                .foregroundColor(.white)
+                    
+                    if !password.isEmpty {
+                        Button(action: {
+                            attemptLogin()
+                        }) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(Color(red: 0.35, green: 0.18, blue: 0.05))
+                                    .frame(width: 180, height: 50)
+                                    .shadow(radius: 5)
+                                
+                                Text("Next")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                            }
                         }
-                        .disabled(password.isEmpty)
+                        .transition(.opacity)
+                        .animation(.easeInOut, value: password)
                     }
                     
                     HStack(spacing: 4) {
@@ -83,6 +89,8 @@ struct SignIn: View {
                         
                         NavigationLink(destination: SignUp()) {
                             Text("Sign Up")
+                                .underline()
+                                .foregroundColor(Color(red: 0.35, green: 0.18, blue: 0.05))
                         }
                     }
                     .padding(.top, 20)
@@ -92,20 +100,27 @@ struct SignIn: View {
                 .padding(.bottom, 40)
                 .offset(y: 100)
             }
-            .alert(alertTitle, isPresented: $showAlert) {
-                NavigationLink("OK") { }
-            } message: {
-                Text(alertMessage)
-                HomePage()
+            
+            .navigationDestination(isPresented: $navigateToContentView) {
+                ContentView()
             }
             
+            .alert(alertTitle, isPresented: $showAlert) {
+                Button("OK") {
+                    if alertTitle.starts(with: "Welcome back") {
+                        navigateToContentView = true
+                    }
+                }
+            } message: {
+                Text(alertMessage)
+            }
         }
     }
     
-    
+   
     private func attemptLogin() {
         if password.count < 8 {
-            alertTitle = "That password’s undercooked "
+            alertTitle = "That password’s undercooked"
             alertMessage = "👩🏾‍🍳 Try at least 8 characters for the perfect recipe!"
             showAlert = true
             return
@@ -114,12 +129,9 @@ struct SignIn: View {
         let formattedName = name.trimmingCharacters(in: .whitespacesAndNewlines).capitalized
         alertTitle = "Welcome back \(formattedName)!"
         alertMessage = "Yum! Your password’s cooked to perfection 😋"
-        
         showAlert = true
     }
 }
-//}
-
 
 #Preview {
     SignIn()
