@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Culinary_Roots_AppApp: App {
@@ -13,6 +14,7 @@ struct Culinary_Roots_AppApp: App {
         WindowGroup {
         WelcomePage()
         }
+        .modelContainer(for: AfricanFood.self)
     }
 }
 

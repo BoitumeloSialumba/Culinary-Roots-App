@@ -578,7 +578,7 @@ class AfricanFoodService: ObservableObject {
         } else {
             self.foods = self.mockFoods.filter { food in
                 food.name.localizedCaseInsensitiveContains(trimmed) ||
-                food.description.localizedCaseInsensitiveContains(trimmed) ||
+                food.descriptionFood.localizedCaseInsensitiveContains(trimmed) ||
                 food.region.localizedCaseInsensitiveContains(trimmed)
             }
         }
