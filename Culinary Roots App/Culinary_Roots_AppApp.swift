@@ -11,7 +11,8 @@ import SwiftUI
 struct Culinary_Roots_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            WelcomePage()
+        WelcomePage()
         }
     }
 }
+
