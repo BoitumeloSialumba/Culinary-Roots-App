@@ -9,7 +9,9 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var foodService = AfricanFoodService()
     @State private var searchText = ""
-
+    @State private var showingAddRecipe = false
+    
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -22,15 +24,23 @@ struct ContentView: View {
                 FoodListView(foods: foodService.foods)
             }
             .navigationTitle("🌍 African Foods")
-            .onAppear {
-                foodService.loadFoods()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: AddingANewRecipe()) {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.title2)
+                    }
+                }
+            }
+                    .onAppear {
+                        foodService.loadFoods()
+                    }
+                }
             }
         }
-    }
-}
-
-
-
-#Preview {
-    ContentView()
-}
+        
+        
+        
+        #Preview {
+            ContentView()
+        }

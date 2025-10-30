@@ -4,11 +4,13 @@
 //
 //  Created by Boitumelo Sialumba on 20/10/2025.
 //
+
 import SwiftUI
+import SwiftData
 
 struct FoodListView: View {
     let foods: [AfricanFood]
-
+    
     var body: some View {
             List(foods) { food in
                 NavigationLink(destination: FoodDetailView(food: food)) {
