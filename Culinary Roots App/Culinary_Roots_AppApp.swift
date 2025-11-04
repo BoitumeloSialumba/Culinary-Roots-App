@@ -12,7 +12,7 @@ import SwiftData
 struct Culinary_Roots_AppApp: App {
     var body: some Scene {
         WindowGroup {
-        WelcomePage()
+            ContentView()
         }
         .modelContainer(for: AfricanFood.self)
     }
