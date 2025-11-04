@@ -7,10 +7,13 @@
 
 import Foundation
 import Combine
+import SwiftData
+import SwiftUI
 
 class AfricanFoodService: ObservableObject {
     @Published var foods: [AfricanFood] = []
     @Published var isLoading: Bool = false
+    @Query var storedFoods: [AfricanFood] = []
     
     
     private let mockFoods: [AfricanFood] = [
@@ -557,6 +560,7 @@ class AfricanFoodService: ObservableObject {
             defaultServings: 2
         )
     ]
+  
     
     
     init() {
@@ -565,22 +569,20 @@ class AfricanFoodService: ObservableObject {
     
     
     func loadFoods() {
-    
-        self.foods = self.mockFoods
+        self.foods = self.mockFoods + self.storedFoods
         self.isLoading = false
     }
     
     func searchFoods(query: String) {
-        let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        if trimmed.isEmpty {
-            self.foods = self.mockFoods
-        } else {
-            self.foods = self.mockFoods.filter { food in
-                food.name.localizedCaseInsensitiveContains(trimmed) ||
-                food.descriptionFood.localizedCaseInsensitiveContains(trimmed) ||
-                food.region.localizedCaseInsensitiveContains(trimmed)
+        if !query.isEmpty {
+            self.foods = []
+            for food in self.mockFoods {
+                if food.name.contains(query) {
+                    self.foods.append(food)
+                }
             }
+        } else {
+            loadFoods()
         }
         
         self.isLoading = false
